@@ -22,3 +22,15 @@
 # Установка через pip
 pip install git+https://github.com/dontevenrap/apiclient-plus.git
 ```
+
+Или установите из исходников:
+
+```bash
+git clone https://github.com/dontevenrap/apiclient-plus.git
+cd apiclient-plus
+pip install -e .
+```
+
+🚀 Быстрый старт
+
+Пример 1: Получить цену Bitcoin
