@@ -35,7 +35,7 @@ pip install -e .
 
 Пример 1: Получить цену Bitcoin
 
-```bash
+```python
 from apiclient import APIClient
 
 client = APIClient()
@@ -48,7 +48,7 @@ if result["success"]:
 
 Пример 2: Получить погоду
 
-```bash
+```python
 weather = client.get_weather("London")
 if weather["success"]:
     print(f"🌤️ London: {weather['temperature']}°C, {weather['description']}")
@@ -57,7 +57,7 @@ if weather["success"]:
 
 Пример 3: Получить курс валют
 
-```bash
+```python
 exchange = client.get_exchange_rate("USD", "EUR")
 if exchange["success"]:
     print(f"💱 USD/EUR: {exchange['rate']:.4f}")
@@ -66,14 +66,14 @@ if exchange["success"]:
 
 Пример 4: Посмотреть статистику
 
-```bash
+```python
 stats = client.get_statistics()
 print(f"📊 Успешных запросов: {stats['success_rate']:.1f}%")
 ```
 
 ⚙️ Конфигурация
 
-```bash
+```python
 from apiclient import APIClient
 
 # Расширенная конфигурация
@@ -110,7 +110,7 @@ currency (str): Валюта (USD, EUR, RUB, GBP, JPY)
 
 Возвращает: dict
 
-```bash
+```python
 {
     "success": True,          # Успешен ли запрос
     "price": 85955.0,         # Цена Bitcoin
@@ -128,3 +128,112 @@ get_weather(city="London")
 city (str): Название города на английском
 
 Возвращает: dict
+
+```python
+{
+    "success": True,
+    "city": "London",
+    "temperature": 11.6,      # Температура в °C
+    "description": "Cloudy",  # Описание погоды
+    "source": "Open-Meteo",
+    "response_time": 0.2
+}
+```
+
+get_exchange_rate(from_currency="USD", to_currency="EUR")
+
+Получает курс обмена валют.
+
+Параметры:
+
+from_currency (str): Исходная валюта
+
+to_currency (str): Целевая валюта
+
+Возвращает: dict
+
+```python
+{
+    "success": True,
+    "from_currency": "USD",
+    "to_currency": "EUR",
+    "rate": 0.8646,           # Курс обмена
+    "source": "Frankfurter",
+    "response_time": 0.18
+}
+```
+
+get_statistics()
+
+Возвращает статистику использования API.
+
+Возвращает: dict
+
+```python
+{
+    "total_requests": 10,     # Всего запросов
+    "successful_requests": 8, # Успешных запросов
+    "failed_requests": 2,     # Неуспешных запросов
+    "success_rate": 80.0,     # Процент успешных запросов
+    "cache_size": 5           # Количество кэшированных запросов
+}
+```
+
+clear_cache()
+
+Очищает кэш клиента.
+
+test_connection()
+
+Проверяет подключение к интернету.
+
+Возвращает: bool (True если есть подключение)
+
+Вспомогательные функции
+
+```python
+from apiclient import create_client, get_default_client
+
+# Создать клиент с кастомными параметрами
+client1 = create_client(timeout=5, max_retries=2)
+
+# Получить глобальный клиент (создается при первом вызове)
+client2 = get_default_client()
+```
+
+🛠️ Для разработчиков
+
+Установка для разработки
+
+```bash
+git clone https://github.com/dontevenrap/apiclient-plus.git
+cd apiclient-plus
+
+# Создайте виртуальное окружение (Windows)
+python -m venv venv
+venv\Scripts\activate
+
+# Установите пакет в режиме разработки
+pip install -e .
+
+# Установите зависимости для разработки
+pip install pytest pytest-cov
+```
+
+Запуск тестов
+
+```bash
+# Создайте тестовый файл test.py
+python test.py
+```
+
+Пример test.py:
+
+```python
+from apiclient import APIClient
+
+client = APIClient()
+print("Bitcoin:", client.get_bitcoin_price())
+print("Weather:", client.get_weather("Moscow"))
+print("Exchange:", client.get_exchange_rate("USD", "RUB"))
+```
