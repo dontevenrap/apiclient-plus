@@ -99,7 +99,9 @@ timeout (int): Таймаут запроса в секундах
 max_retries (int): Количество повторных попыток при ошибках
 
 Методы:
+
 get_bitcoin_price(currency="USD")
+
 Получает текущую цену Bitcoin.
 
 Параметры:
@@ -118,6 +120,7 @@ currency (str): Валюта (USD, EUR, RUB, GBP, JPY)
 }
 ```
 get_weather(city="London")
+
 Получает погоду для указанного города.
 
 Параметры:
