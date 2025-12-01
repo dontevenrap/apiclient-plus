@@ -85,8 +85,11 @@ client = APIClient(
 ```
 
 📚 API Reference
+
 Класс APIClient
+
 APIClient(timeout=10, max_retries=3)
+
 Создает новый экземпляр клиента.
 
 Параметры:
