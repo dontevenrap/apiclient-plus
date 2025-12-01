@@ -237,3 +237,16 @@ print("Bitcoin:", client.get_bitcoin_price())
 print("Weather:", client.get_weather("Moscow"))
 print("Exchange:", client.get_exchange_rate("USD", "RUB"))
 ```
+
+Структура проекта
+
+```text
+apiclient-plus/
+├── apiclient/
+│   ├── __init__.py     # Экспортирует APIClient
+│   └── client.py       # Основной код клиента
+├── setup.py           # Конфигурация пакета
+├── requirements.txt   # Зависимости
+├── README.md         # Эта документация
+└── LICENSE           # Лицензия MIT
+```
