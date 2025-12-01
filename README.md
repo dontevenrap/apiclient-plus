@@ -1,102 +1,24 @@
-\# APIClient Plus 🚀
+# APIClient Plus 🚀
 
+[![Python Version](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub stars](https://img.shields.io/github/stars/dontevenrap/apiclient-plus.svg)](https://github.com/dontevenrap/apiclient-plus/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/dontevenrap/apiclient-plus.svg)](https://github.com/dontevenrap/apiclient-plus/network)
 
+Производственный Python-клиент для работы с внешними API. Автоматически переключается между разными источниками при ошибках, кэширует результаты и предоставляет статистику использования.
 
-Производственный Python-клиент для внешних API с автоматическим переключением источников и кэшированием.
+## ✨ Возможности
 
+- ✅ **Автоматическое переключение** между API источниками
+- ✅ **Умные повторные попытки** с экспоненциальной задержкой
+- ✅ **Встроенное кэширование** с TTL (время жизни)
+- ✅ **Подробная статистика** использования API
+- ✅ **3 готовых API**: Цена Bitcoin, погода, курсы валют
+- ✅ **Простой и понятный** интерфейс
 
-
-\## Установка
-
-
+## 📦 Установка
 
 ```bash
-
-pip install apiclient-plus
-
-Быстрый старт
-
-python
-
-from apiclient import APIClient
-
-
-
-\# Создаем клиент
-
-client = APIClient(timeout=10, max\_retries=3)
-
-
-
-\# Получаем цену биткоина
-
-btc = client.get\_bitcoin\_price()
-
-if btc\["success"]:
-
-&nbsp;   print(f"💰 Bitcoin: ${btc\['price']:,.2f}")
-
-
-
-\# Получаем погоду
-
-weather = client.get\_weather("London")
-
-if weather\["success"]:
-
-&nbsp;   print(f"🌤️ London: {weather\['temperature']}°C")
-
-
-
-\# Получаем курс валют
-
-exchange = client.get\_exchange\_rate("USD", "EUR")
-
-if exchange\["success"]:
-
-&nbsp;   print(f"💱 USD/EUR: {exchange\['rate']:.4f}")
-
-Возможности
-
-✅ Автоматическое переключение между источниками API
-
-
-
-✅ Кэширование результатов
-
-
-
-✅ Повторные попытки при ошибках
-
-
-
-✅ Статистика использования
-
-
-
-✅ Поддержка Bitcoin, погоды, курсов валют
-
-
-
-Пример вывода
-
-text
-
-Bitcoin: $85,955.00
-
-London: 11.6°C
-
-USD/EUR: 0.8646
-
-Успешность: 75.0%
-
-Для разработки
-
-bash
-
-git clone https://github.com/ваш-username/apiclient-plus.git
-
-cd apiclient-plus
-
-pip install -e .
-
+# Установка через pip
+pip install git+https://github.com/dontevenrap/apiclient-plus.git
+```
